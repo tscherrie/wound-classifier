@@ -36,7 +36,30 @@ form {
     margin-top: 2rem;
 }
 
-input[type="file"], input[type="submit"] {
+.file-input-wrapper {
+    position: relative;
+    width: auto;
+}
+
+input[type="file"] {
+    display: none;  /* Hide the default file input */
+}
+
+.file-input-wrapper label {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-input-wrapper label:hover {
+    background-color: #0056b3;
+}
+
+input[type="submit"] {
     margin: 0.5rem 0;
     padding: 0.7rem 1.5rem;
     border: none;
@@ -47,7 +70,7 @@ input[type="file"], input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-input[type="file"]:hover, input[type="submit"]:hover {
+input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
