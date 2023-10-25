@@ -28,7 +28,7 @@ source woundClassifier/bin/activate
 Install the necessary Python packages:
 
 \```bash
-pip install Flask replicate gunicorn
+pip install Flask Flask-Session replicate gunicorn
 \```
 
 ### 4. Set Up Replicate API

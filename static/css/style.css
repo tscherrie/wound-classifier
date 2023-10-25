@@ -36,6 +36,17 @@ form {
     margin-top: 2rem;
 }
 
+/* New styling for login input and button */
+input[type="password"] {
+    padding: 0.7rem 1.5rem;
+    font-size: medium;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* End of new styling */
+
 .file-input-wrapper {
     position: relative;
     width: auto;
@@ -45,7 +56,8 @@ input[type="file"] {
     display: none;  /* Hide the default file input */
 }
 
-.file-input-wrapper label {
+.file-input-wrapper label,
+input[type="submit"] {
     display: inline-block;
     padding: 0.7rem 1.5rem;
     font-size: medium;
@@ -56,22 +68,7 @@ input[type="file"] {
     transition: background-color 0.3s ease;
 }
 
-.file-input-wrapper label:hover {
-    background-color: #0056b3;
-}
-
-input[type="submit"] {
-    margin: 0.5rem 0;
-    padding: 1.0rem 1.0rem;
-    font-size: medium;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
+.file-input-wrapper label:hover,
 input[type="submit"]:hover {
     background-color: #0056b3;
 }

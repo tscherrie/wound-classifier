@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
+from flask import Flask, session, redirect, render_template, request, redirect, url_for, flash, send_from_directory
 from replicate_api import REPLICATE_API_TOKEN
 import replicate
 import os
@@ -7,8 +7,26 @@ app = Flask(__name__)
 app.secret_key = 'supersecretkeyeysupersupersecret'  # This is for flashing messages
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    # Hardcoded password for demonstration purposes
+    correct_password = "sehrgeheimundsicher123"
+    
+    if request.method == 'POST':
+        password = request.form['password']
+        if password == correct_password:
+            session['logged_in'] = True
+            return redirect(url_for('index'))
+        else:
+            flash("Incorrect password!", "danger")
+    
+    return render_template('login.html')
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
     if request.method == 'POST':
         image = request.files['wound_image']
         if image:
