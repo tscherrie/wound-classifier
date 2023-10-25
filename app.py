@@ -24,7 +24,7 @@ def uploaded_file(filename):
 
 def classify_wound(image_path):
     # Set API token
-    os.environ["REPLICATE_API_TOKEN"] = "ce0ec1aef6cec8114118bd0424aa8f95f5d1ee5b"
+    os.environ["REPLICATE_API_TOKEN"] = "YOUR_REPLICATE_API_KEY"
 
     # Call the API
     prompt = """
