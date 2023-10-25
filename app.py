@@ -1,24 +1,21 @@
 from flask import Flask, session, redirect, render_template, request, redirect, url_for, flash, send_from_directory
-from replicate_api import REPLICATE_API_TOKEN
+from replicate_api import REPLICATE_API_TOKEN, SECRET_KEY, PASSWORD
 import replicate
 import os
 
 app = Flask(__name__)
-app.secret_key = 'supersecretkeyeysupersupersecret'  # This is for flashing messages
+app.secret_key = SECRET_KEY
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # Hardcoded password for demonstration purposes
-    correct_password = "sehrgeheimundsicher123"
-    
     if request.method == 'POST':
         password = request.form['password']
-        if password == correct_password:
+        if password == PASSWORD:
             session['logged_in'] = True
             return redirect(url_for('index'))
         else:
-            flash("Incorrect password!", "danger")
+            flash("")
     
     return render_template('login.html')
 

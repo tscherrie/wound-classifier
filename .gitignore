@@ -3,3 +3,4 @@
 !/uploads/.gitkeep
 nohup.out
 replicate_api.py
+/__pycache__/*
