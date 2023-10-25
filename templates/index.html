@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wound Classification</title>
+    <title>Wund Bestimmung</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -18,27 +18,42 @@
             {% endif %}
         {% endwith %}
 
-        <!-- Display captured image -->
-        {% if uploaded_image %}
+        <!-- Placeholder for chosen/captured image -->
         <div class="image-container">
-            <img src="{{ url_for('uploaded_file', filename=uploaded_image) }}" alt="Captured Image">
+            <img id="preview-image" src="#" alt="Chosen Image" style="display: none;">
         </div>
-        {% endif %}
+
+        <!-- Spinner -->
+        <div class="spinner" id="loadingSpinner"></div>
 
         <form action="/" method="post" enctype="multipart/form-data">
             <div class="file-input-wrapper">
                 <input type="file" name="wound_image" id="wound_image" accept="image/*" capture="camera">
-                <label for="wound_image">Wund-Foto machen</label>
+                <label for="wound_image">1. Wund-Foto machen</label>
             </div>
-            <input type="submit" value="Wundklasse ermitteln" style="display: none;">
+            <input type="submit" value="2. Wundklasse ermitteln" style="display: none;">
         </form>
     </div>
 
     <script>
         document.querySelector('input[type="file"]').addEventListener('change', function() {
             if (this.files && this.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const previewImage = document.getElementById('preview-image');
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                }
+
+                reader.readAsDataURL(this.files[0]);
+
                 document.querySelector('input[type="submit"]').style.display = 'block';
             }
+        });
+
+        document.querySelector('form').addEventListener('submit', function() {
+            document.getElementById('loadingSpinner').style.display = 'block';
         });
     </script>
 
