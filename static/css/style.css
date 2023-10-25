@@ -1,0 +1,53 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    background-color: #f4f4f4;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    margin: 1rem auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="file"], input[type="submit"] {
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="file"]:hover, input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.result .headline {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    background-color: #e8e8e8;
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 80%;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    body {
+        margin: 4rem;
+    }
+}
