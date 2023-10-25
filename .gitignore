@@ -2,3 +2,4 @@
 /uploads/*
 !/uploads/.gitkeep
 nohup.out
+replicate_api.py

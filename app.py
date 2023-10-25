@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
+from replicate_api import REPLICATE_API_TOKEN
 import replicate
 import os
 
@@ -24,7 +25,7 @@ def uploaded_file(filename):
 
 def classify_wound(image_path):
     # Set API token
-    os.environ["REPLICATE_API_TOKEN"] = "YOUR_REPLICATE_API_KEY"
+    os.environ["REPLICATE_API_TOKEN"] = REPLICATE_API_TOKEN
 
     # Call the API
     prompt = """
