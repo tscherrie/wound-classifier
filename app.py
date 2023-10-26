@@ -52,11 +52,10 @@ def classify_wound(image_path):
     • Grad 3a: Abgeheiltes Ulcus cruris venosum.
     • Grad 3b: Florides Ulcus cruris venosum.
 
-    Bitte antworte AUSSCHLIESSLICH mit der Kategorie zum Beispiel "Grad 1: Corona phlebectatica paraplantaris (lokale Gefäßerweiterungen am medialen und lateralen Fußrand), Phlebödem." oder "nicht zutreffend". Kein anderer oder weiterer Text!
     """
     output = replicate.run(
         "yorickvp/llava-13b:2facb4a474a0462c15041b78b1ad70952ea46b5ec6ad29583c0b29dbd4249591",
-        input={"image": open(image_path, "rb"), "prompt": prompt, "temperature": 0.1, "top_p": 0.1, "max_tokens": 100}
+        input={"image": open(image_path, "rb"), "prompt": prompt, "temperature": 0.1, "top_p": 0.1, "max_tokens": 150}
     )
 
     response = "".join(list(output))
