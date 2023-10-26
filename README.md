@@ -34,7 +34,7 @@ Before using the application, ensure you have a Replicate API key:
 
 Register or log in to Replicate.
 Navigate to the API section and generate a new API key.
-Create a replicate_api.py file in the root directory of your application.
+Create a my_secrets.py file in the root directory of your application.
 Add your Replicate API key, Flask secret key, and login password in this format:
 ```python
 REPLICATE_API_TOKEN = "YOUR_REPLICATE_API_KEY"
@@ -42,7 +42,7 @@ SECRET_KEY = 'YOUR_FLASK_SECRET_KEY'
 PASSWORD = "YOUR_LOGIN_PASSWORD"
 ```
 
-Ensure replicate_api.py is added to .gitignore so that it's not committed to the repository.
+Ensure my_secrets.py is added to .gitignore so that it's not committed to the repository.
 
 5. Allow Traffic to Port 8000
 Ensure port 8000 is open to accept incoming traffic:

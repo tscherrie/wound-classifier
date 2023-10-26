@@ -1,5 +1,5 @@
 from flask import Flask, session, redirect, render_template, request, redirect, url_for, flash, send_from_directory
-from replicate_api import REPLICATE_API_TOKEN, SECRET_KEY, PASSWORD
+from my_secrets import REPLICATE_API_TOKEN, SECRET_KEY, PASSWORD
 import replicate
 import os
 

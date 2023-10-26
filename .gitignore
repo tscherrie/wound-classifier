@@ -2,7 +2,7 @@
 /uploads/*
 !/uploads/.gitkeep
 nohup.out
-replicate_api.py
+my_secrets.py
 __pycache__/
 *.pyc
 
